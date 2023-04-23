@@ -1,0 +1,18 @@
+<%- include("header") -%>
+<div id="list-items">
+  <form action="/delete" method="post" id="form-1">
+      <ul class="items">
+        <%  for(var i=0; i<itemFound.length; i++){   %>
+            <li><input type="checkbox" name="checkbox" value="<%=itemFound[i]._id%>" onChange="this.form.submit()"> <span><%= itemFound[i].work %></span> </li>
+     <% } %>
+    </form>
+        <form action="/" method="post" id="form-2">
+          <input type="text" name="newData" class="input-1" placeholder="New Item" />
+          <button type="submit" class="btn-submit">+</button>
+        </form>
+      </ul>
+    </div>
+  </div>
+  <script src="index.js"></script>
+  </body>
+</html>

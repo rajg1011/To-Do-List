@@ -1,0 +1,1 @@
+How to make checkbox work. Data will cut down when checkbox is checked
