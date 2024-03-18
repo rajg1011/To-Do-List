@@ -4,7 +4,7 @@ const PORT = "https://rajg1011.github.io/bajaj" || 3000;
 
 app.use(express.json());
 app.get("/bfhl",(req,res)=>{
-  res.sendFile("index.html")
+  res.render("index.ejs")
 })
 app.post('/bfhl', (req, res) => {
     const { array } = req.body;
