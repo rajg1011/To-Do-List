@@ -1,18 +1,27 @@
-<%- include("header") -%>
-<div id="list-items">
-  <form action="/delete" method="post" id="form-1">
-      <ul class="items">
-        <%  for(var i=0; i<itemFound.length; i++){   %>
-            <li><input type="checkbox" name="checkbox" value="<%=itemFound[i]._id%>" onChange="this.form.submit()"> <span><%= itemFound[i].work %></span> </li>
-     <% } %>
-    </form>
-        <form action="/" method="post" id="form-2">
-          <input type="text" name="newData" class="input-1" placeholder="New Item" />
-          <button type="submit" class="btn-submit">+</button>
-        </form>
-      </ul>
-    </div>
-  </div>
-  <script src="index.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button type="button" id="fetchdata" >Fetch</button>
+  <p id="result"> </p>
+</body>
+  <script>
+    const fetchDataBtn = document.querySelector('#fetchdata')
+    const result = document.querySelector('#result')
+    const getData = function() {
+      result.innerText = 'Loading....'
+      fetch('https://rajg1011.github.io/bajaj/bfhl')
+        .then(res => res.json())
+        .then(data => {
+          result.innerText = JSON.stringify(data, null, 2)
+        })
+        .catch(error => console.log(error))
+    }
+    fetchDataBtn.addEventListener('click', getData)
+  </script>
 </html>
